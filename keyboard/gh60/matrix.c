@@ -136,7 +136,7 @@ uint8_t matrix_key_count(void)
 
 /* Column pin configuration
  * col: 0   1   2   3   4   5   6   7   8   9   10  11  12  13
- * pin: B6  B5  B4  D7  F7  C7  C6  D3  D2  D1  D0  B7  B3  B2  (Rev.A)
+ * pin: B2  B3  B7  D0  D1  D2  D3  C6  C7  F7  D7  B4  B5  B6
  */
 static void  init_cols(void)
 {
@@ -153,20 +153,20 @@ static void  init_cols(void)
 
 static matrix_row_t read_cols(void)
 {
-    return (PINF&(1<<7) ? 0 : (1<<4)) |
-           (PIND&(1<<7) ? 0 : (1<<3)) |
-           (PIND&(1<<3) ? 0 : (1<<7)) |
-           (PIND&(1<<2) ? 0 : (1<<8)) |
-           (PIND&(1<<1) ? 0 : (1<<9)) |
-           (PIND&(1<<0) ? 0 : (1<<10)) |
-           (PINC&(1<<7) ? 0 : (1<<5)) |
-           (PINC&(1<<6) ? 0 : (1<<6)) |
-           (PINB&(1<<7) ? 0 : (1<<11)) |
-           (PINB&(1<<6) ? 0 : (1<<0)) |
-           (PINB&(1<<5) ? 0 : (1<<1)) |
-           (PINB&(1<<4) ? 0 : (1<<2)) |
-           (PINB&(1<<3) ? 0 : (1<<12) |
-           (PINB&(1<<2) ? 0 : (1<<13));
+    return (PINF&(1<<7) ? 0 : (1<<9)) |
+           (PIND&(1<<7) ? 0 : (1<<10)) |
+           (PIND&(1<<3) ? 0 : (1<<6)) |
+           (PIND&(1<<2) ? 0 : (1<<5)) |
+           (PIND&(1<<1) ? 0 : (1<<4)) |
+           (PIND&(1<<0) ? 0 : (1<<3)) |
+           (PINC&(1<<7) ? 0 : (1<<8)) |
+           (PINC&(1<<6) ? 0 : (1<<7)) |
+           (PINB&(1<<7) ? 0 : (1<<2)) |
+           (PINB&(1<<6) ? 0 : (1<<13)) |
+           (PINB&(1<<5) ? 0 : (1<<12)) |
+           (PINB&(1<<4) ? 0 : (1<<11)) |
+           (PINB&(1<<3) ? 0 : (1<<1) |
+           (PINB&(1<<2) ? 0 : (1<<0));
 }
 
 /* Row pin configuration
